@@ -26,9 +26,8 @@ namespace System
 
             var actual = map.Invoke(value);
 
-            return ValueSet.Contains(actual)
-                ? actual
-                : otherFactory.Invoke();
+            var matched = ValueSet.Contains(actual);
+            return matched ? actual : otherFactory.Invoke();
         }
     }
 }
