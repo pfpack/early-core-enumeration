@@ -25,16 +25,9 @@ namespace System
 
             var actual = map.Invoke(value);
 
-            if (ValueSet.Contains(actual))
-            {
-                result = actual;
-                return true;
-            }
-            else
-            {
-                result = default;
-                return false;
-            }
+            var matched = ValueSet.Contains(actual);
+            result = matched ? actual : default;
+            return matched;
         }
     }
 }
