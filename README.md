@@ -1,1 +1,1 @@
-# PrimeFuncPack Enumeration
+# PrimeFuncPack Core Enumeration
