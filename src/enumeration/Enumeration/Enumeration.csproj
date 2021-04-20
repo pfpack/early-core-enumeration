@@ -7,7 +7,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Description>PrimeFuncPack Enumeration</Description>
+		<Description>PrimeFuncPack Core Enumeration</Description>
 		<Copyright>Copyright © 2021 Andrei Sergeev, Pavel Moskovoy</Copyright>
 		<RootNamespace>System</RootNamespace>
 		<AssemblyName>EarlyFuncPack.Enumeration</AssemblyName>
