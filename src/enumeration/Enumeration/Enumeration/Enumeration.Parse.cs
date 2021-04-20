@@ -4,22 +4,7 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        public static bool TryParse(string? value, out TEnumeration result)
-        {
-            foreach (var current in Values)
-            {
-                if (current.Equals(value))
-                {
-                    result = current;
-                    return true;
-                }
-            }
-
-            result = default;
-            return false;
-        }
-
-        public static TEnumeration Parse(string? value, Func<string?, TEnumeration> otherFactory)
+        public static TEnumeration Parse(string? value, Func<TEnumeration> otherFactory)
         {
             _ = otherFactory ?? throw new ArgumentNullException(nameof(otherFactory));
 
@@ -31,7 +16,19 @@ namespace System
                 }
             }
 
-            return otherFactory.Invoke(value);
+            return otherFactory.Invoke();
+        }
+
+        public static TEnumeration Parse(string? value, Func<string?, TEnumeration> map, Func<TEnumeration> otherFactory)
+        {
+            _ = map ?? throw new ArgumentNullException(nameof(map));
+            _ = otherFactory ?? throw new ArgumentNullException(nameof(otherFactory));
+
+            var actual = map.Invoke(value);
+
+            return ValueSet.Contains(actual)
+                ? actual
+                : otherFactory.Invoke();
         }
     }
 }
