@@ -1,13 +1,14 @@
 #nullable enable
 
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        private static partial class EnumerationCollection
+        private static class EnumerationCollection
         {
             public static ReadOnlyCollection<TEnumeration> Value => Internal.Value;
 
@@ -18,7 +19,7 @@ namespace System
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static ReadOnlyCollection<TEnumeration> Build()
                     =>
-                    new ReadOnlyCollection<TEnumeration>(Builder.Build());
+                    EnumerationSource<TEnumeration>.Value.ToArray().Pipe(Array.AsReadOnly);
             }
         }
     }
