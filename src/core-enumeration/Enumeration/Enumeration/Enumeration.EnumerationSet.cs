@@ -1,6 +1,7 @@
 #nullable enable
 
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace System
@@ -16,9 +17,9 @@ namespace System
                 public static IReadOnlySet<TEnumeration> Value = Build();
 
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
-                private static HashSet<TEnumeration> Build()
+                private static IReadOnlySet<TEnumeration> Build()
                     =>
-                    new HashSet<TEnumeration>(EnumerationCollection.Value);
+                    EnumerationSource.Value.ToHashSet();
             }
         }
     }

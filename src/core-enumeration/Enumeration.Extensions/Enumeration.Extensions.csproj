@@ -7,11 +7,11 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Description>PrimeFuncPack Core Enumeration</Description>
+		<Description>PrimeFuncPack Core Enumeration Extensions</Description>
 		<Copyright>Copyright © 2021 Andrei Sergeev, Pavel Moskovoy</Copyright>
 		<RootNamespace>System</RootNamespace>
-		<AssemblyName>EarlyFuncPack.Core.Enumeration</AssemblyName>
-		<Version>0.0.1</Version>
+		<AssemblyName>EarlyFuncPack.Core.Enumeration.Extensions</AssemblyName>
+		<Version>0.0.5</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -19,6 +19,11 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="EarlyFuncPack.Core.Enumeration" Version="0.0.5" />
+	  <PackageReference Include="PrimeFuncPack.Core.Optional" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>

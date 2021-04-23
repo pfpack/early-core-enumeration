@@ -9,19 +9,22 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        partial class EnumerationCollection
+        partial class EnumerationSource
         {
             private static class Builder
             {
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 public static TEnumeration[] Build()
                     =>
-                    Enumerate().ToArray();                
+                    Enumerate().ToArray();
 
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static IEnumerable<TEnumeration> Enumerate()
                     =>
-                    EnumeratePropertyMatch().Concat(EnumerateFieldMatch());
+                    Pipeline.Pipe(
+                        EnumeratePropertyMatch())
+                    .Concat(
+                        EnumerateFieldMatch());
 
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static IEnumerable<TEnumeration> EnumeratePropertyMatch()
