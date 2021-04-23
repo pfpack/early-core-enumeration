@@ -19,7 +19,7 @@ namespace System
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static ReadOnlyCollection<TEnumeration> Build()
                     =>
-                    EnumerationSource<TEnumeration>.Value.ToArray().Pipe(Array.AsReadOnly);
+                    EnumerationSource.Value.ToArray().Pipe(Array.AsReadOnly);
             }
         }
     }

@@ -8,7 +8,7 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        internal static class EnumerationSet
+        private static class EnumerationSet
         {
             public static IReadOnlySet<TEnumeration> Value => Internal.Value;
 
@@ -19,7 +19,7 @@ namespace System
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static IReadOnlySet<TEnumeration> Build()
                     =>
-                    EnumerationSource<TEnumeration>.Value.ToHashSet();
+                    EnumerationSource.Value.ToHashSet();
             }
         }
     }
