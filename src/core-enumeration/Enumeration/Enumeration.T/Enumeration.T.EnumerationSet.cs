@@ -10,16 +10,16 @@ namespace System
     {
         private static class EnumerationSet
         {
-            public static IReadOnlySet<TEnumeration> Value => Internal.Value;
+            public static IReadOnlyDictionary<TEnumeration, TEnumeration> Value => Internal.Value;
 
             private static class Internal
             {
-                public static IReadOnlySet<TEnumeration> Value = Build();
+                public static IReadOnlyDictionary<TEnumeration, TEnumeration> Value = Build();
 
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
-                private static IReadOnlySet<TEnumeration> Build()
+                private static IReadOnlyDictionary<TEnumeration, TEnumeration> Build()
                     =>
-                    EnumerationSource.Value.ToHashSet();
+                    EnumerationSource.Value.ToDictionary(enumeration => enumeration);
             }
         }
     }
