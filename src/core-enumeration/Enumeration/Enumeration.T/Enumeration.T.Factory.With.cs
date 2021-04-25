@@ -4,11 +4,11 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        public static Enumeration<TEnumeration> With(Func<string, TEnumeration> factory)
+        public static Enumeration<TEnumeration> With(Func<string, TEnumeration> from)
         {
-            _ = factory ?? throw new ArgumentNullException(nameof(factory));
+            _ = from ?? throw new ArgumentNullException(nameof(from));
 
-            return new Enumeration<TEnumeration>(factory);
+            return new Enumeration<TEnumeration>(from);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace System
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
-            return factory.Invoke(value);
+            return from.Invoke(value);
         }
     }
 }

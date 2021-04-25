@@ -11,7 +11,7 @@
 		<Copyright>Copyright © 2021 Andrei Sergeev, Pavel Moskovoy</Copyright>
 		<RootNamespace>System</RootNamespace>
 		<AssemblyName>EarlyFuncPack.Core.Enumeration</AssemblyName>
-		<Version>0.1.0</Version>
+		<Version>0.1.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>

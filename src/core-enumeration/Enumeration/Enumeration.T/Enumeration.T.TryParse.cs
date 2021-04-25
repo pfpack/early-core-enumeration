@@ -8,7 +8,7 @@ namespace System
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
-            return InternalTryParse(factory.Invoke(value), out result);
+            return InternalTryParse(from.Invoke(value), out result);
         }
 
         private static bool InternalTryParse(TEnumeration actual, out TEnumeration result)

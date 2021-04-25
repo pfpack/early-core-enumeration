@@ -5,10 +5,10 @@ namespace System
     public sealed partial class Enumeration<TEnumeration>
         where TEnumeration : struct
     {
-        private readonly Func<string, TEnumeration> factory;
+        private readonly Func<string, TEnumeration> from;
 
-        private Enumeration(Func<string, TEnumeration> factory)
+        private Enumeration(Func<string, TEnumeration> from)
             =>
-            this.factory = factory;
+            this.from = from;
     }
 }
