@@ -10,7 +10,7 @@ namespace System
 
         private static class Internal
         {
-            public static EnumerationSet<TEnumeration> Instance = Build();
+            public static readonly EnumerationSet<TEnumeration> Instance = Build();
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             private static EnumerationSet<TEnumeration> Build()

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal sealed partial class EnumerationSource<TEnumeration>
+    internal sealed partial class EnumerationSource<TEnumeration> : IEnumeration<TEnumeration>
         where TEnumeration : struct
     {
         private readonly TEnumeration[] values;
