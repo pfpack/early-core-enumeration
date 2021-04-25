@@ -8,11 +8,11 @@ namespace System
     {
         private static partial class EnumerationSource
         {
-            public static IReadOnlyCollection<TEnumeration> Value => Internal.Value;
+            public static IEnumerable<TEnumeration> Value => Internal.Value;
 
             private static class Internal
             {
-                public static IReadOnlyCollection<TEnumeration> Value = Builder.Build();
+                public static IEnumerable<TEnumeration> Value = Builder.Build();
             }
         }
     }
