@@ -8,7 +8,7 @@ namespace System
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
-            return InternalTryParse(from.Invoke(value), out result);
+            return InternalTryGet(from.Invoke(value), out result);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        private static bool InternalTryParse(TEnumeration actual, out TEnumeration result)
+        private static bool InternalTryGet(TEnumeration actual, out TEnumeration result)
         {
             if (EnumerationSet.Value.Contains(actual))
             {
