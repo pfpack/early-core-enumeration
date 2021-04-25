@@ -10,17 +10,5 @@ namespace System
 
             return InternalTryParse(from.Invoke(value), out result);
         }
-
-        private static bool InternalTryParse(TEnumeration actual, out TEnumeration result)
-        {
-            if (EnumerationSet.Value.Contains(actual))
-            {
-                result = actual;
-                return true;
-            }
-
-            result = default;
-            return false;
-        }
     }
 }

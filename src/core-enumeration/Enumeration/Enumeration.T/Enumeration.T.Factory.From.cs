@@ -10,7 +10,11 @@ namespace System
         {
             _ = value ?? throw new ArgumentNullException(nameof(value));
 
-            return from.Invoke(value);
+            var actual = from.Invoke(value);
+
+            return InternalTryParse(actual, out var result)
+                ? result
+                : actual;
         }
     }
 }
