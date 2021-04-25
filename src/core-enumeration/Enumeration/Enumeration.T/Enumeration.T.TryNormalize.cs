@@ -7,8 +7,8 @@ namespace System
     partial class Enumeration<TEnumeration>
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static bool InternalTryNormalize(TEnumeration actual, out TEnumeration normalized)
+        private static bool TryNormalize(TEnumeration actual, out TEnumeration normalized)
             =>
-            EnumerationSet.Value.TryGetValue(actual, out normalized);
+            EnumerationSet<TEnumeration>.Instance.TryGetValue(actual, out normalized);
     }
 }

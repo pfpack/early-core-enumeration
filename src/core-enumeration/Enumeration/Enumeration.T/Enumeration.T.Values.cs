@@ -6,6 +6,8 @@ namespace System
 {
     partial class Enumeration<TEnumeration>
     {
-        public static IReadOnlyCollection<TEnumeration> Values => EnumerationCollection.Value;
+        public static IReadOnlyCollection<TEnumeration> Values
+            =>
+            EnumerationReadOnly<TEnumeration>.Instance.Values;
     }
 }

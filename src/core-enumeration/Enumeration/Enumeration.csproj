@@ -21,8 +21,4 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="PrimeFuncPack.Primitives" Version="1.1.2" />
-	</ItemGroup>
-
 </Project>

@@ -12,7 +12,7 @@ namespace System
 
             var actual = from.Invoke(value);
 
-            return InternalTryNormalize(actual, out var normalized)
+            return TryNormalize(actual, out var normalized)
                 ? normalized
                 : actual;
         }
