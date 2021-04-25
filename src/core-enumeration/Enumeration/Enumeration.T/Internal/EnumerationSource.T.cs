@@ -16,7 +16,25 @@ namespace System
             =>
             this.values = values;
 
-        public IReadOnlyCollection<TEnumeration> Values => values;
+        public int Count => values.Length;
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool TryGetValue(TEnumeration equalValue, out TEnumeration actualValue)
+        {
+            for (var i = 0; i < values.Length; i++)
+            {
+                var currentValue = values[i];
+
+                if (EnumerationComparer.Equals(equalValue, currentValue))
+                {
+                    actualValue = currentValue;
+                    return true;
+                }
+            }
+
+            actualValue = default;
+            return false;
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ReadOnlyCollection<TEnumeration> AsReadOnly()
@@ -26,6 +44,8 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public HashSet<TEnumeration> ToHashSet()
             =>
-            new HashSet<TEnumeration>(values);
+            new HashSet<TEnumeration>(values, EnumerationComparer);
+
+        private static IEqualityComparer<TEnumeration> EnumerationComparer => EqualityComparer<TEnumeration>.Default;
     }
 }

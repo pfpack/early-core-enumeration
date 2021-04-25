@@ -9,6 +9,13 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool TryNormalize(TEnumeration actual, out TEnumeration normalized)
             =>
-            EnumerationSet<TEnumeration>.Instance.TryGetValue(actual, out normalized);
+            EnumerationSource<TEnumeration>.Instance.Count switch
+            {
+                > 4 =>
+                EnumerationSet<TEnumeration>.Instance.TryGetValue(actual, out normalized),
+
+                _ =>
+                EnumerationSource<TEnumeration>.Instance.TryGetValue(actual, out normalized)
+            };
     }
 }
