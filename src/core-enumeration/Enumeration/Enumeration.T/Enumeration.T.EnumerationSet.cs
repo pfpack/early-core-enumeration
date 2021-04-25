@@ -19,7 +19,9 @@ namespace System
                 [MethodImpl(MethodImplOptions.AggressiveInlining)]
                 private static IReadOnlyDictionary<TEnumeration, TEnumeration> Build()
                     =>
-                    EnumerationSource.Value.ToDictionary(enumeration => enumeration);
+                    EnumerationSource.Value
+                    .Distinct()
+                    .ToDictionary(enumeration => enumeration);
             }
         }
     }
