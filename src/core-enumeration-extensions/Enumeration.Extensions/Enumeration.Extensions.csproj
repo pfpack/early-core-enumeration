@@ -11,7 +11,7 @@
 		<Copyright>Copyright © 2021 Andrei Sergeev, Pavel Moskovoy</Copyright>
 		<RootNamespace>System</RootNamespace>
 		<AssemblyName>EarlyFuncPack.Core.Enumeration.Extensions</AssemblyName>
-		<Version>0.0.5</Version>
+		<Version>0.1.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="EarlyFuncPack.Core.Enumeration" Version="0.0.5" />
+	  <PackageReference Include="EarlyFuncPack.Core.Enumeration" Version="0.1.1" />
 	  <PackageReference Include="PrimeFuncPack.Core.Optional" Version="1.1.0" />
 	</ItemGroup>
 
