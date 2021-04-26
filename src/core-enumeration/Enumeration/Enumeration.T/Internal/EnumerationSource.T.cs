@@ -2,11 +2,12 @@
 
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal sealed partial class EnumerationSource<TEnumeration> : IEnumeration<TEnumeration>
+    internal sealed partial class EnumerationSource<TEnumeration> : IEnumerationSource<TEnumeration>
         where TEnumeration : struct
     {
         private readonly TEnumeration[] values;
@@ -16,7 +17,7 @@ namespace System
             =>
             this.values = values;
 
-        public int Count => values.Length;
+        public int ValueCount => values.Length;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool TryGetValue(TEnumeration equalValue, out TEnumeration actualValue)
@@ -39,13 +40,15 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ReadOnlyCollection<TEnumeration> AsReadOnly()
             =>
-            new ReadOnlyCollection<TEnumeration>(values);
+            values.Pipe(Array.AsReadOnly);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public HashSet<TEnumeration> ToHashSet()
             =>
-            new HashSet<TEnumeration>(values, EnumerationComparer);
+            values.ToHashSet(EnumerationComparer);
 
-        private static IEqualityComparer<TEnumeration> EnumerationComparer => EqualityComparer<TEnumeration>.Default;
+        private static IEqualityComparer<TEnumeration> EnumerationComparer
+            =>
+            EqualityComparer<TEnumeration>.Default;
     }
 }

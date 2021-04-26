@@ -18,7 +18,10 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IEnumerable<TEnumeration> Enumerate()
             =>
-            EnumeratePropertyMatch().Concat(EnumerateFieldMatch());
+            Pipeline.Pipe(
+                EnumeratePropertyMatch())
+            .Concat(
+                EnumerateFieldMatch());
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IEnumerable<TEnumeration> EnumeratePropertyMatch()

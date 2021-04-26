@@ -4,19 +4,19 @@ using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal static class EnumerationImpl<TEnumeration>
+    internal static class EnumerationSourceProvider<TEnumeration>
         where TEnumeration : struct
     {
-        public static IEnumeration<TEnumeration> Instance => Internal.Instance;
+        public static IEnumerationSource<TEnumeration> EnumerationSource => Internal.EnumerationSource;
 
         private static class Internal
         {
-            public static readonly IEnumeration<TEnumeration> Instance = Select();
+            public static readonly IEnumerationSource<TEnumeration> EnumerationSource = Select();
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            private static IEnumeration<TEnumeration> Select()
+            private static IEnumerationSource<TEnumeration> Select()
                 =>
-                EnumerationSource<TEnumeration>.Instance.Count switch
+                EnumerationSource<TEnumeration>.Instance.ValueCount switch
                 {
                     > 4 =>
                     EnumerationSet<TEnumeration>.Instance,

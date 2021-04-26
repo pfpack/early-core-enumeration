@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal sealed partial class EnumerationSet<TEnumeration> : IEnumeration<TEnumeration>
+    internal sealed partial class EnumerationSet<TEnumeration> : IEnumerationSource<TEnumeration>
         where TEnumeration : struct
     {
         private readonly HashSet<TEnumeration> values;

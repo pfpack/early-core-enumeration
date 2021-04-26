@@ -2,7 +2,7 @@
 
 namespace System
 {
-    internal interface IEnumeration<TEnumeration>
+    internal interface IEnumerationSource<TEnumeration>
         where TEnumeration : struct
     {
         bool TryGetValue(TEnumeration equalValue, out TEnumeration actualValue);

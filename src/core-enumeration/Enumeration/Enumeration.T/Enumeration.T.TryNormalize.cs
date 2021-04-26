@@ -9,6 +9,6 @@ namespace System
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static bool TryNormalize(TEnumeration actual, out TEnumeration normalized)
             =>
-            EnumerationImpl<TEnumeration>.Instance.TryGetValue(actual, out normalized);
+            EnumerationSource.TryGetValue(actual, out normalized);
     }
 }
