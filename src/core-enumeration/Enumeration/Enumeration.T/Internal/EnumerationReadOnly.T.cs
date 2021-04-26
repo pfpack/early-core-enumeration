@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal static partial class EnumerationReadOnly<TEnumeration>
+    internal static class EnumerationReadOnly<TEnumeration>
         where TEnumeration : struct
     {
         public static ReadOnlyCollection<TEnumeration> Values => Internal.Values;
