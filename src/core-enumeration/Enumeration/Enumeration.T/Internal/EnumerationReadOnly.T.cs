@@ -5,16 +5,19 @@ using System.Runtime.CompilerServices;
 
 namespace System
 {
-    internal sealed partial class EnumerationReadOnly<TEnumeration>
+    internal static partial class EnumerationReadOnly<TEnumeration>
         where TEnumeration : struct
     {
-        private readonly ReadOnlyCollection<TEnumeration> values;
+        public static ReadOnlyCollection<TEnumeration> Values => Internal.Values;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public EnumerationReadOnly(ReadOnlyCollection<TEnumeration> values)
-            =>
-            this.values = values;
+        private static class Internal
+        {
+            public static readonly ReadOnlyCollection<TEnumeration> Values = Build();
 
-        public ReadOnlyCollection<TEnumeration> Values => values;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            private static ReadOnlyCollection<TEnumeration> Build()
+                =>
+                EnumerationSource<TEnumeration>.Instance.AsReadOnly();
+        }
     }
 }

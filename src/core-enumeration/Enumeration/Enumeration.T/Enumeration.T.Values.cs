@@ -8,6 +8,6 @@ namespace System
     {
         public static IReadOnlyCollection<TEnumeration> Values
             =>
-            EnumerationReadOnly<TEnumeration>.Instance.Values;
+            EnumerationReadOnly<TEnumeration>.Values;
     }
 }
